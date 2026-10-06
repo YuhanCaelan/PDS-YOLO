@@ -28,7 +28,12 @@ from ultralytics.utils import (
     emojis,
     is_dir_writeable,
 )
-from ultralytics.utils.checks import check_file, check_font, is_ascii, normalize_platform_uri
+from ultralytics.utils.checks import (
+    check_file,
+    check_font,
+    is_ascii,
+    normalize_platform_uri,
+)
 from ultralytics.utils.downloads import download, safe_download
 from ultralytics.utils.ops import segments2boxes
 

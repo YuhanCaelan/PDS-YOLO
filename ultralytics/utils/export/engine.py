@@ -11,7 +11,16 @@ import cv2
 import numpy as np
 import torch
 
-from ultralytics.utils import ASSETS, IS_JETSON, LOGGER, TORCH_VERSION, ThreadingLocked, imread, is_dgx, is_jetson
+from ultralytics.utils import (
+    ASSETS,
+    IS_JETSON,
+    LOGGER,
+    TORCH_VERSION,
+    ThreadingLocked,
+    imread,
+    is_dgx,
+    is_jetson,
+)
 from ultralytics.utils.checks import check_requirements, check_tensorrt, check_version
 from ultralytics.utils.torch_utils import TORCH_2_4
 

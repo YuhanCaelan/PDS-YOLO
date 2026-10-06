@@ -29,27 +29,22 @@ def main():
     # --------------------------------------------------------
     metrics = model.val(
         data=DATA_YAML,
-
         # Fixed evaluation parameters
         conf=CONF,
         iou=IOU,
         imgsz=IMGSZ,
         batch=BATCH,
         device=DEVICE,
-
         # Do not use test-time augmentation
         augment=False,
-
         # Save validation predictions
         save_json=True,
         save_txt=True,
         save_conf=True,
-
         # Output
         project=PROJECT,
         name=NAME,
         exist_ok=True,
-
         # Deterministic validation configuration
         plots=True,
         verbose=True,

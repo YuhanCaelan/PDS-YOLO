@@ -658,7 +658,10 @@ def get_flops(model, imgsz=640):
         return 0.0  # if not installed return 0.0 GFLOPs
 
     try:
-        from ultralytics.nn.modules.block import AAttn, Attention  # imported here: block.py imports this module
+        from ultralytics.nn.modules.block import (  # imported here: block.py imports this module
+            AAttn,
+            Attention,
+        )
         from ultralytics.nn.modules.head import RTDETRDecoder
 
         model = unwrap_model(model)

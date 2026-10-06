@@ -13,7 +13,16 @@ from pathlib import Path
 from urllib import parse
 from uuid import uuid4
 
-from ultralytics.utils import ASSETS_URL, LOGGER, TQDM, checks, clean_url, emojis, is_online, url2file
+from ultralytics.utils import (
+    ASSETS_URL,
+    LOGGER,
+    TQDM,
+    checks,
+    clean_url,
+    emojis,
+    is_online,
+    url2file,
+)
 
 # Define Ultralytics GitHub assets maintained at https://github.com/ultralytics/assets
 GITHUB_ASSETS_REPO = "ultralytics/assets"
@@ -399,15 +408,18 @@ def safe_download(
                             if i == 0 and expected_size > 1048576:
                                 check_disk_space(expected_size, path=f.parent)
                             buffer_size = max(8192, min(1048576, expected_size // 1000)) if expected_size else 8192
-                            with TQDM(
-                                total=expected_size,
-                                desc=desc,
-                                disable=not progress,
-                                unit="B",
-                                unit_scale=True,
-                                unit_divisor=1024,
-                                initial=resume,
-                            ) as pbar, open(f, "ab" if resume else "wb") as f_opened:
+                            with (
+                                TQDM(
+                                    total=expected_size,
+                                    desc=desc,
+                                    disable=not progress,
+                                    unit="B",
+                                    unit_scale=True,
+                                    unit_divisor=1024,
+                                    initial=resume,
+                                ) as pbar,
+                                open(f, "ab" if resume else "wb") as f_opened,
+                            ):
                                 for data in response.raw.stream(buffer_size, decode_content=False):
                                     f_opened.write(data)
                                     pbar.update(len(data))

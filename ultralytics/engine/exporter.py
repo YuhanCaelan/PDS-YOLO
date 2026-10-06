@@ -82,8 +82,16 @@ from ultralytics import __version__
 from ultralytics.cfg import QUANTIZE_DOCS_URL, TASK2CALIBRATIONDATA, TASK2DATA, get_cfg
 from ultralytics.data import build_dataloader, build_yolo_dataset
 from ultralytics.data.dataset import ClassificationDataset
-from ultralytics.data.utils import check_cls_dataset, check_det_dataset, get_split_fraction
-from ultralytics.nn.autobackend import AutoBackend, check_class_names, default_class_names
+from ultralytics.data.utils import (
+    check_cls_dataset,
+    check_det_dataset,
+    get_split_fraction,
+)
+from ultralytics.nn.autobackend import (
+    AutoBackend,
+    check_class_names,
+    default_class_names,
+)
 from ultralytics.nn.modules import (
     OBB,
     OBB26,
@@ -99,7 +107,13 @@ from ultralytics.nn.modules import (
     Segment26,
     SemanticSegment,
 )
-from ultralytics.nn.tasks import ClassificationModel, DepthModel, DetectionModel, SegmentationModel, WorldModel
+from ultralytics.nn.tasks import (
+    ClassificationModel,
+    DepthModel,
+    DetectionModel,
+    SegmentationModel,
+    WorldModel,
+)
 from ultralytics.utils import (
     ARM64,
     DEFAULT_CFG,
@@ -1310,7 +1324,11 @@ class Exporter:
     def export_coreml(self, prefix=colorstr("CoreML:")):  # noqa: B008
         """Export YOLO model to CoreML format."""
         mlmodel = self.args.format.lower() == "mlmodel"  # legacy *.mlmodel export format requested
-        from ultralytics.utils.export.coreml import IOSDetectModel, pipeline_coreml, torch2coreml
+        from ultralytics.utils.export.coreml import (
+            IOSDetectModel,
+            pipeline_coreml,
+            torch2coreml,
+        )
 
         # numpy 2.4.x breaks coremltools CoreML export https://github.com/apple/coremltools/issues/2633
         check_requirements(["coremltools>=9.0", "numpy>=1.14.5,<=2.3.5"])

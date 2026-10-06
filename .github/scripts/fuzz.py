@@ -597,7 +597,9 @@ def run_trial(trial, timeout=None):
         argv = [a if not a.startswith("model=") else f"model={local}" for a in argv]
     else:
         argv.append(f"project={workdir / 'runs'}")
-    from ultralytics.cfg import _YOLO_CLI_COMMAND  # same invocation trainer/tuner use to respawn the CLI
+    from ultralytics.cfg import (
+        _YOLO_CLI_COMMAND,  # same invocation trainer/tuner use to respawn the CLI
+    )
 
     cmd = [*_YOLO_CLI_COMMAND, *argv]
     env = {**os.environ, "YOLO_AUTOINSTALL": "false", "PYTHONFAULTHANDLER": "1"}
