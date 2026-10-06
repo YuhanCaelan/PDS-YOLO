@@ -90,7 +90,13 @@ from ultralytics.utils import (
     colorstr,
     emojis,
 )
-from ultralytics.utils.checks import REMOTE_FILE_PREFIXES, check_file, check_requirements, check_suffix, check_yaml
+from ultralytics.utils.checks import (
+    REMOTE_FILE_PREFIXES,
+    check_file,
+    check_requirements,
+    check_suffix,
+    check_yaml,
+)
 from ultralytics.utils.loss import (
     DepthLoss26,
     E2ELoss,
